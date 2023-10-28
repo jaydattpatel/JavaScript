@@ -1,0 +1,95 @@
+JavaScript Object Notation (JSON):
+
+The modern web consists of millions and millions of web pages, connected services and databases.
+
+There are websites communicating with other websites, getting data from data feeds and data providers, both paid and free.
+
+All of these data flows must be facilitated with some kind of data format.
+
+Around 2001, Douglas Crockford came up with a data interchange format based on JavaScript objects. The name given to this format was JSON, which is JavaScript Object Notation.
+
+It is often said that JSON is a subset of JavaScript, meaning it adheres to syntax rules of the JavaScript language, but it's even more strict in how proper JSON code should be formatted. In other words, all JSON code is JavaScript, but not all JavaScript code is JSON.
+
+Besides being a data interchange format, JSON is also a file format. It's not uncommon to access some third-party data from a third-party website into our own code in the form of a json file.
+
+For example, if the stringified JSON data was converted to an object that had the following structure:
+
+const currencyInfo = {
+    [
+        USD: {
+            // ...
+        },
+        GBP: {
+            // ...
+        },
+        EUR: {
+            // ...
+        }
+    ]
+}
+
+
+JSON is just a string - but there are rules that it must follow
+JSON is a string, but it must be a properly-formatted string. In other words, it must adhere to some rules.
+
+If a JSON string is not properly formatted, JavaScript would not be able to parse it into a JavaScript object.
+
+JSON can work with some primitives and some complex data types, as described below.
+
+Only a subset of values in JavaScript can be properly stringified to JSON and parsed from a JavaScript object into a JSON string.
+
+These values include:
+
+primitive values: strings, numbers, bolleans, null
+
+complex values: objects and arrays (no functions!)
+
+Objects have double-quoted strings for all keys
+
+Properties are comma-delimited both in JSON objects and in JSON arrays, just like in regular JavaScript code
+
+String properties must be surrounded in double quotes. For example:
+"fruits",
+"vegetables"
+
+Number properties are represented using the regular JavaScript number syntax; e.g
+5,
+10,
+1.2
+
+Boolean properties are represented using the regular JavaScript boolean syntax, that is:
+true
+false
+
+Null as a property is the same as in regular JavaScript; it's just a
+null
+
+Some examples of JSON strings
+Finally, here is an example of a stringified JSON object, with a single key-value pair:
+
+'{"color":"red"}' 
+
+Here's a bit more complex JSON object:
+
+'{"color":"red", "nestedObject": { "color": "blue" } }' 
+
+The above JSON object encodes two properties:
+
+"color":"red"
+
+"nestedObject": { "color": "blue" }
+
+It's also possible to have a JSON string encoding just an array:
+
+'["one", "two", "three"]'
+
+The above JSON string encodes an array holding three items, three values of the string data type. Obviously, just like objects, arrays can nest other simple or complex data structures.
+
+For example:
+
+'[{ "color": "blue" }, {"color: "red"}]'
+
+In the above example, the JSON string encodes an array which holds two objects, where each object consists of a single key-value pair, where both values are strings.
+
+
+
