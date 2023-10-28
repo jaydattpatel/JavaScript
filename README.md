@@ -1,2 +1,2 @@
 # JavaScript
-JavaScript for beginners.
+JavaScript for beginners with Node.js.
