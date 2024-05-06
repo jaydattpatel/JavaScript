@@ -11,7 +11,16 @@ console.log("Hello","there,","World");//space add automatically
 var str = "Hello";
 console.log(str,'World');
 var year = 2023;
+
 console.log(str,'World',year);
+
+console.log(`${str} World ${year}`);
+
+var price = 10;
+var VAT = 0.25;
+console.log(`Total: ${(price * (1 + VAT)).toFixed(2)}`);
+
+
 
 // string.concat(string).concat(string).concate(string)...............
 console.log("concate: ", str.concat('World').concat(year)); //
@@ -20,6 +29,7 @@ console.log(("Hello " + "there, " + "World").length);
 console.log("str.length : ", str.length);
 
 console.log("str.charAt(1) : ", str.charAt(1));
+console.log("str.charCodeAt(1) : ", str.charCodeAt(1));
 console.log("str.indexOf('l') : ", str.indexOf('l'));
 console.log("str.lastIndexOf('l') : ", str.lastIndexOf('l'));
 
@@ -45,7 +55,8 @@ console.log("str.substring(1) : ", str.substring(1));
 console.log("str.substring(1,4) : ", str.substring(1,4));
 
 //get new string with replace characters. 
-console.log("str.replace('ll','LL') : ", str.replace('ll','LL'));
+console.log("str.replace('l','L') : ", str.replace('l','L'));
+console.log("str.replaceAll('l','L') : ", str.replaceAll('l','L'));
 
 console.log("str.includes('ll') : ", str.includes('ll'));
 console.log("str.repeat(2) : ", str.repeat(2));
