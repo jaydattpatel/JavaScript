@@ -14,17 +14,17 @@ try{
 
 }
 
- Here are some of the most common errors in JavaScript: 
-ReferenceError 
-SyntaxError : syntax error can not work with try and catch block
-TypeError 
-RangeError
+Here are some of the most common errors in JavaScript: 
+- ReferenceError 
+- SyntaxError : syntax error can not work with try and catch block
+- TypeError 
+- RangeError
 
 There are some other errors in JavaScript. These other errors include: 
-AggregateError 
-Error 
-InternalError 
-URIError 
+- AggregateError 
+- Error 
+- InternalError 
+- URIError 
  */
 
 console.log("\n----------Reference Error");
