@@ -26,77 +26,83 @@ Handling a rejected promise in each .then() has consequences further down the pr
 */
 
 //--------------------Sample-1--------------------
-let request = new Promise( (resolve, reject) =>{
+console.log(`----------Sample-1-----------`);
+function getPromise(x) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(`Promise initiated`);
+      if (!(x === 0)) {
+        resolve(x);
+      } else {
+        reject("Request rejected...");
+      }
+    }, 100);
+  });
+}
+let request1 = getPromise(0);
 
-    setTimeout(()=>{
-        console.log(`----------Sample-1-----------`);
-        console.log(`Promise initiated`);
-        let x = 0;
-        if(x === 0){
-            resolve('Request resolved...');
-        }else{
-            reject('Request rejected...');
-        }
-    },100);
-
-} );
-
-request.then((val)=>{
-    console.log(val);
-}).catch((errVal)=>{
+request1
+  .then((val) => {
+    console.log("val : ", val);
+  })
+  .catch((errVal) => {
     console.log(errVal);
-})
+  });
 
-
+let request2 = getPromise(10);
+request2
+  .then((val) => {
+    console.log("val : ", val);
+  })
+  .catch((errVal) => {
+    console.log(errVal);
+  });
 //--------------------Sample-2--------------------
-function getUserData (userId) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log(`----------Sample-2-----------`);
-            if (userId === 123) {
-                resolve({ id: 123, name: 'John Doe', age: 30 });
-            } else {
-                reject('User not found');
-            }
-        }, 150);
-    });
+function getUserData(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log(`----------Sample-2-----------`);
+      if (userId === 123) {
+        resolve({ id: 123, name: "John Doe", age: 30 });
+      } else {
+        reject("User not found");
+      }
+    }, 150);
+  });
 }
 
-function displayUserData (userId) {
-    getUserData (userId)
-        .then((userData) => {
-            console.log('User data:', userData.name);
-        })
-        .catch((error) => {
-            console.error('Error: ', error);
-        });
+function displayUserData(userId) {
+  getUserData(userId)
+    .then((userData) => {
+      console.log("User data:", userData.name);
+    })
+    .catch((error) => {
+      console.error("Error: ", error);
+    });
 }
 
 displayUserData(123);
 
 //--------------------Sample-3--------------------
 const promise3 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 250, 'one');
-  });
-  
-const promise4 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 200, 'two');
-  });
-  
-  Promise.race([promise3, promise4]).then((value) => {
-    console.log(`----------Sample-3-----------`);
-    console.log(value);
-    // Both resolve, but promise2 is faster
-  });
+  setTimeout(resolve, 250, "one");
+});
 
+const promise4 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 200, "two");
+});
+
+Promise.race([promise3, promise4]).then((value) => {
+  console.log(`----------Sample-3-----------`);
+  console.log(value);
+  // Both resolve, but promise2 is faster
+});
 
 //--------------------Sample-4--------------------
-const promise1 = new Promise((resolve) => setTimeout(() => resolve (1), 3000));
+const promise1 = new Promise((resolve) => setTimeout(() => resolve(1), 3000));
 const promise2 = new Promise((resolve) => setTimeout(() => resolve(2), 1000));
 
-Promise.all([promise1, promise2]) 
-    .then((results) => {
-        console.log(`----------Sample-4-----------`);
-        console.log(results);
-    });
-
+Promise.all([promise1, promise2]).then((results) => {
+  console.log(`----------Sample-4-----------`);
+  console.log(results);
+});
